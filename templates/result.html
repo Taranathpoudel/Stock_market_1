@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Analysis Result</title>
+</head>
+<body>
+    <h1>Investment Analysis Result</h1>
+    <h2>Investment vs Profit Chart</h2>
+    <img src="data:image/png;base64,{{ plot_url }}" alt="Investment vs Profit Chart">
+    
+    <h2>Dataframe</h2>
+    {% for table in tables %}
+        {{ table|safe }}
+    {% endfor %}
+    
+    <h2>Download Excel</h2>
+    <a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{{ excel_data }}" download="analysis.xlsx">Download Excel</a>
+</body>
+</html>
